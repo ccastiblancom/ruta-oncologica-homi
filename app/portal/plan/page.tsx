@@ -2,6 +2,7 @@
 "use client";
 
 import { CheckCircle2, Circle, Map as MapIcon, Info, ChevronRight, Heart, Phone } from "lucide-react";
+import Link from "next/link"; // Importación necesaria para la navegación
 
 const fasesTratamiento = [
   {
@@ -48,11 +49,14 @@ export default function PlanTratamiento() {
         
         {/* Logo y Botón de Ayuda */}
         <div className="flex justify-between items-center mb-8">
-          <img 
-            src="/logo-homi.png" 
-            alt="Fundación HOMI" 
-            className="h-9 w-auto object-contain" 
-          />
+          {/* LOGO ENLAZADO AL HOME */}
+          <Link href="/" className="hover:opacity-80 transition-opacity">
+            <img 
+              src="/logo-homi.png" 
+              alt="Fundación HOMI" 
+              className="h-9 w-auto object-contain cursor-pointer" 
+            />
+          </Link>
           <button className="text-xs bg-teal-50 text-teal-700 px-4 py-2 rounded-full flex items-center gap-2 font-bold border border-teal-100 hover:bg-teal-100 transition-colors">
             <Phone size={14} /> Ayuda
           </button>

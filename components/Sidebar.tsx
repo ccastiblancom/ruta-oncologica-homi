@@ -32,13 +32,16 @@ export default function Sidebar({ currentRole }: SidebarProps) {
   return (
     <aside className="w-64 h-screen bg-blue-900 text-white flex flex-col shadow-xl z-20 overflow-hidden">
       
-      {/* Encabezado con el Logo Blanco Exclusivo del Menú Lateral */}
+      {/* Encabezado con el Logo Blanco - Ajustado para ser Link */}
       <div className="h-20 flex justify-center items-center shrink-0 border-b border-white/10 mt-3">
-        <img 
-          src="/logo-homi-blanco.png" 
-          alt="Fundación HOMI" 
-          className="h-10 w-auto object-contain" 
-        />
+        {/* Envolvemos el logo en Link para volver a la raíz sin recargar la página */}
+        <Link href="/" className="hover:opacity-80 transition-opacity">
+          <img 
+            src="/logo-homi-blanco.png" 
+            alt="Fundación HOMI" 
+            className="h-10 w-auto object-contain cursor-pointer" 
+          />
+        </Link>
       </div>
 
       <nav className="flex-1 px-4 space-y-2 mt-6 overflow-y-auto">

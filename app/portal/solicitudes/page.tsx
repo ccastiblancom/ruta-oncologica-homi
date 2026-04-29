@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import { MessageCircleHeart, Send, Clock, CheckCircle2, Car, Pill, CalendarX, HeartHandshake, Phone } from "lucide-react";
+import Link from "next/link";
 
 const tiposAyuda = [
   { id: "transporte", nombre: "Transporte", icono: Car, color: "bg-blue-100 text-blue-700" },
@@ -20,7 +21,7 @@ export default function PortalSolicitudes() {
     setEnviado(true);
   };
 
-  // Pantalla de Éxito (se mantiene igual pero ajustamos su contenedor principal para que no bloquee scroll)
+  // Pantalla de Éxito
   if (enviado) {
     return (
       <div className="bg-white min-h-screen flex flex-col items-center justify-center p-8 text-center font-sans pb-24">
@@ -33,7 +34,7 @@ export default function PortalSolicitudes() {
         </p>
         <button 
           onClick={() => setEnviado(false)}
-          className="w-full bg-teal-600 text-white font-bold py-4 rounded-2xl shadow-lg"
+          className="w-full bg-teal-600 text-white font-bold py-4 rounded-2xl shadow-lg transition-transform active:scale-95"
         >
           Entendido
         </button>
@@ -42,20 +43,21 @@ export default function PortalSolicitudes() {
   }
 
   return (
-    // Contenedor principal limpio, sin restricciones
     <div className="pb-10 font-sans">
       
       {/* CABECERA PROFESIONAL HOMI */}
       <div className="bg-white px-6 pt-10 pb-10 rounded-b-[2.5rem] shadow-sm border-b border-gray-200 relative z-20">
         
-        {/* Logo y Botón de Ayuda */}
+        {/* Logo y Botón de Urgencia */}
         <div className="flex justify-between items-center mb-8">
-          <img 
-            src="/logo-homi.png" 
-            alt="Fundación HOMI" 
-            className="h-9 w-auto object-contain" 
-          />
-          <button className="text-xs bg-teal-50 text-teal-700 px-4 py-2 rounded-full flex items-center gap-2 font-bold border border-teal-100 hover:bg-teal-100 transition-colors">
+          <Link href="/" className="hover:opacity-80 transition-opacity">
+            <img 
+              src="/logo-homi.png" 
+              alt="Fundación HOMI" 
+              className="h-9 w-auto object-contain cursor-pointer" 
+            />
+          </Link>
+          <button className="text-xs bg-red-50 text-red-700 px-4 py-2 rounded-full flex items-center gap-2 font-bold border border-red-100 hover:bg-red-100 transition-colors shrink-0">
             <Phone size={14} /> Urgencia
           </button>
         </div>
@@ -82,6 +84,7 @@ export default function PortalSolicitudes() {
               return (
                 <button
                   key={tipo.id}
+                  type="button"
                   onClick={() => setSeleccionado(tipo.id)}
                   className={`p-4 rounded-2xl border-2 transition-all flex flex-col items-center gap-2 ${
                     seleccionado === tipo.id 

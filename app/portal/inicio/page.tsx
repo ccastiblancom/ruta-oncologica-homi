@@ -6,17 +6,20 @@ import Link from "next/link";
 
 export default function PortalFamiliarInicio() {
   return (
-    // Estructura completamente limpia: Sin menús duplicados, solo el padding inferior para evitar que el contenido choque con el PortalNav
+    // Estructura limpia: el LayoutWrapper se encarga del scroll y el PortalNav del menú inferior
     <div className="pb-10 font-sans">
       
       {/* CABECERA PROFESIONAL HOMI */}
       <div className="bg-white px-6 pt-10 pb-10 rounded-b-[2.5rem] shadow-sm border-b border-gray-200 relative z-20">
         <div className="flex justify-between items-center mb-8">
-          <img 
-            src="/logo-homi.png" 
-            alt="Fundación HOMI" 
-            className="h-9 w-auto object-contain" 
-          />
+          {/* LOGO ENLAZADO A LA RAÍZ */}
+          <Link href="/" className="hover:opacity-80 transition-opacity">
+            <img 
+              src="/logo-homi.png" 
+              alt="Fundación HOMI" 
+              className="h-9 w-auto object-contain cursor-pointer" 
+            />
+          </Link>
           <button className="text-xs bg-teal-50 text-teal-700 px-4 py-2 rounded-full flex items-center gap-2 font-bold border border-teal-100 hover:bg-teal-100 transition-colors">
             <Phone size={14} /> Ayuda
           </button>
@@ -28,7 +31,7 @@ export default function PortalFamiliarInicio() {
       {/* CONTENIDO PRINCIPAL */}
       <div className="px-5 -mt-4 space-y-6 relative z-10">
         
-        {/* TARJETA 1 */}
+        {/* TARJETA 1: ETAPA ACTUAL */}
         <div className="bg-white p-5 rounded-3xl shadow-sm border border-gray-100 mt-8">
           <div className="flex justify-between items-start mb-3">
             <h2 className="text-gray-800 font-bold text-lg">Nuestra etapa actual</h2>
@@ -51,8 +54,8 @@ export default function PortalFamiliarInicio() {
           </div>
         </div>
 
-        {/* TARJETA 2 */}
-        <div className="bg-blue-50/50 p-5 rounded-3xl border border-blue-100">
+        {/* TARJETA 2: PRÓXIMA CITA */}
+        <div className="bg-blue-50/50 p-5 rounded-3xl border border-blue-100 backdrop-blur-sm">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-[#1e3a8a] font-bold text-lg">Próxima cita</h2>
             <Link href="/portal/citas" className="text-blue-600 text-sm font-bold flex items-center hover:text-blue-800 transition-colors">

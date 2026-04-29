@@ -122,9 +122,27 @@
     @apply border-border outline-ring/50;
   }
   body {
+    /* Mantenemos el color de fondo original de Shadcn */
     @apply bg-background text-foreground;
+    
+    /* Agregamos la marca de agua fija */
+    background-image: url('/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
   }
   html {
     @apply font-sans;
+  }
+
+  /* Aseguramos que las tarjetas y secciones blancas se vean bien sobre el fondo */
+  .bg-white {
+    background-color: white !important;
+  }
+  
+  /* Hacemos que los contenedores base transparenten un poco el fondo si es necesario */
+  .bg-gray-50, .bg-slate-50 {
+    background-color: transparent !important;
   }
 }

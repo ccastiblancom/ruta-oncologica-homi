@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import { Calendar as CalendarIcon, MapPin, Clock, User, AlertCircle, Info, Stethoscope, Syringe, HeartHandshake, Phone } from "lucide-react";
-import Link from "next/link";
+import Link from "next/link"; // Aseguramos la importación de Link
 
 const citasMock = [
   { id: 1, tipo: "Especialista", titulo: "Consulta de Hemato-Oncología", doctor: "Dra. Elena Vargas", fecha: "Mañana, 15 de Noviembre", hora: "09:30 AM", lugar: "Consultorio 402, Sede Principal", estado: "Confirmada", preparacion: "Llegar 15 minutos antes con los resultados del último cuadro hemático.", icono: Stethoscope, color: "bg-blue-100 text-blue-700", borde: "border-blue-200" },
@@ -20,11 +20,20 @@ export default function PortalMisCitas() {
       {/* CABECERA PROFESIONAL HOMI */}
       <div className="bg-white px-6 pt-10 pb-10 rounded-b-[2.5rem] shadow-sm border-b border-gray-200 relative z-20">
         <div className="flex justify-between items-center mb-8">
-          <img src="/logo-homi.png" alt="Fundación HOMI" className="h-9 w-auto object-contain" />
+          {/* LOGO AJUSTADO CON LINK AL HOME */}
+          <Link href="/" className="hover:opacity-80 transition-opacity">
+            <img 
+              src="/logo-homi.png" 
+              alt="Fundación HOMI" 
+              className="h-9 w-auto object-contain cursor-pointer" 
+            />
+          </Link>
+          
           <button className="text-xs bg-teal-50 text-teal-700 px-4 py-2 rounded-full flex items-center gap-2 font-bold border border-teal-100 hover:bg-teal-100 transition-colors">
             <Phone size={14} /> Ayuda
           </button>
         </div>
+        
         <h1 className="text-3xl font-black text-[#1e3a8a] flex items-center gap-3 mb-1">
           <CalendarIcon size={28} className="text-[#1e3a8a]" /> Nuestra Agenda
         </h1>
