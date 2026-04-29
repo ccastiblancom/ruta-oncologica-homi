@@ -1,3 +1,4 @@
+// components/Sidebar.tsx
 "use client";
 
 import Link from 'next/link';
@@ -31,12 +32,12 @@ export default function Sidebar({ currentRole }: SidebarProps) {
   return (
     <aside className="w-64 h-screen bg-blue-900 text-white flex flex-col shadow-xl z-20 overflow-hidden">
       
-      {/* Encabezado con el Logo Original: Transparente, sin filtros y tamaño reducido */}
+      {/* Encabezado con el Logo Blanco Exclusivo del Menú Lateral */}
       <div className="h-20 flex justify-center items-center shrink-0 border-b border-white/10 mt-3">
         <img 
-          src="/logo-homi.png" 
+          src="/logo-homi-blanco.png" 
           alt="Fundación HOMI" 
-          className="h-9 w-auto object-contain" 
+          className="h-10 w-auto object-contain" 
         />
       </div>
 
